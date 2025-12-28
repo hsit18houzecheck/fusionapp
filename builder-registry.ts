@@ -1,6 +1,6 @@
 "use client";
 
-import { Builder } from "@builder.io/react";
+import { builder } from "@builder.io/sdk";
 import Card from "./components/Card";
 import CardGrid from "./components/CardGrid";
 import MainSection from "./components/MainSection";

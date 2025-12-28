@@ -7,7 +7,7 @@ import MainSection from "./components/MainSection";
 import PageHeader from "./components/PageHeader";
 
 // Register Card component
-Builder.registerComponent(Card, {
+builder.registerComponent(Card, {
   name: "Card",
   description: "A reusable card component for displaying content with title and description",
   inputs: [
@@ -24,25 +24,22 @@ Builder.registerComponent(Card, {
       helperText: "The description text for the card",
     },
   ],
+  image: "https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F52c9bac0b8a64effa25e4c5b0424e88f",
+  defaultChildren: false,
 });
 
 // Register CardGrid component
-Builder.registerComponent(CardGrid, {
+builder.registerComponent(CardGrid, {
   name: "CardGrid",
   description:
     "A responsive grid layout for displaying multiple cards (1 col mobile, 2 col tablet, 3 col desktop)",
-  inputs: [
-    {
-      name: "children",
-      type: "object",
-      defaultValue: null,
-      helperText: "Child components to display in the grid",
-    },
-  ],
+  inputs: [],
+  canHaveChildren: true,
+  image: "https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F4e420e57d9a24e2a8c5a89b4c3e4f5g6",
 });
 
 // Register MainSection component
-Builder.registerComponent(MainSection, {
+builder.registerComponent(MainSection, {
   name: "MainSection",
   description: "A main content section with title and flexible children content",
   inputs: [
@@ -52,17 +49,13 @@ Builder.registerComponent(MainSection, {
       defaultValue: "Section Title",
       helperText: "The title of the main section",
     },
-    {
-      name: "children",
-      type: "object",
-      defaultValue: null,
-      helperText: "Child content to display in the section",
-    },
   ],
+  canHaveChildren: true,
+  image: "https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F7f631h68e0b75f39d6b9a0c1d2e3f4a5",
 });
 
 // Register PageHeader component
-Builder.registerComponent(PageHeader, {
+builder.registerComponent(PageHeader, {
   name: "PageHeader",
   description: "A page header component with title and optional subtitle",
   inputs: [
@@ -79,4 +72,5 @@ Builder.registerComponent(PageHeader, {
       helperText: "Optional subtitle text",
     },
   ],
+  image: "https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F9i842j79f1c86g50e7c0b1d2e3f4a5b6",
 });

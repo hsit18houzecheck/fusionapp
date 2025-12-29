@@ -7,12 +7,8 @@ export default function Home() {
         display: "flex",
         flexDirection: "column",
         gap: "20px",
-        "@media (max-width: 991px)": {
-          flexDirection: "column",
-          alignItems: "stretch",
-          gap: "0px",
-        },
       }}
+      className="flex flex-col gap-5 md:gap-0"
     >
       <div
         style={{

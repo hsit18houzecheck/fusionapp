@@ -1,9 +1,12 @@
+import BuilderDevTools from "@builder.io/dev-tools/next";
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
-  turbopack: {},
-};
+const nextConfig: NextConfig = BuilderDevTools()(
+  BuilderDevTools()({
+    /* config options here */
+    reactCompiler: true,
+    turbopack: {},
+  }),
+);
 
 export default nextConfig;

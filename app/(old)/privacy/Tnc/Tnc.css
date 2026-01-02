@@ -1,0 +1,31 @@
+@media only screen and (max-width: 768px) {
+  .tnc-section-btn {
+    border-bottom: 3px solid transparent;
+    font-size: 1.1rem;
+    margin-bottom: 0px;
+    /* font-weight: bold; */
+    cursor: pointer;
+    color: #788088;
+  }
+  .tnc-section-btn:hover,
+  .tnc-section-btn-active {
+    border-bottom-color: black;
+    color: black;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .tnc-section-btn {
+    border-left: 4px solid transparent;
+    font-size: 1.1rem;
+    margin-bottom: 0px;
+    /* font-weight: bold; */
+    cursor: pointer;
+    color: #788088;
+  }
+  .tnc-section-btn:hover,
+  .tnc-section-btn-active {
+    border-left-color: black;
+    color: black;
+  }
+}

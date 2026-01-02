@@ -1,0 +1,34 @@
+.main-banner {
+  background: #fffcf2;
+  background-image: url(/assets/images/old-website/landing/landing-banner.png);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 60% 100%;
+  /* background-blend-mode: luminosity, normal; */
+  /* width: 100%; */
+}
+.landing-form {
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 2rem;
+  text-align: center;
+  -webkit-box-shadow: 1px 3px 14px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 3px 14px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 3px 14px 0px rgba(0, 0, 0, 0.75);
+}
+.landing-form-control {
+  background-color: #f1f7ff !important;
+  border: 1px solid #8fcdf9;
+  border-radius: 10px;
+  outline-color: var(--color-blue-700);
+}
+
+@media only screen and (max-width: 768px) {
+  .main-banner {
+    background-size: cover;
+    background-image: none;
+  }
+  .landing-form {
+    margin-top: 10px;
+  }
+}

@@ -1,17 +1,18 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { freightDispPro, openSauceOne, mont } from "../common/styles/fonts";
 import "./globals.css";
-import BuilderRegisterComponents from "@/components/BuilderRegisterComponents";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import type { Metadata } from "next";
+import { builder } from "@builder.io/sdk";
+import QueryProvider from "@/components/QueryProvider";
+import { Toaster } from "@/components/ui/sonner";
+import { cn } from "@/lib/utils";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// Initialize Builder.io only if API key is available
+if (process.env.BUILDER_API_KEY) {
+  builder.init(process.env.BUILDER_API_KEY);
+} else {
+  console.error("BUILDER_API_KEY is not set in layout.tsx");
+}
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,12 +25,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <BuilderRegisterComponents />
-        {children}
+    <html
+      lang="en"
+      className={cn(
+        freightDispPro.variable,
+        openSauceOne.variable,
+        mont.variable
+      )}
+    >
+      <body className="">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-KXDRPJG"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+        <QueryProvider>{children}</QueryProvider>
+        <Toaster />
       </body>
     </html>
   );

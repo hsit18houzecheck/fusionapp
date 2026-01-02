@@ -1,0 +1,70 @@
+import { ContactUsContent } from "./types";
+
+export const DEFAULT_CONTENT: ContactUsContent = {
+  eyebrow: "We make surveys simple",
+  title: "Contact Us",
+  description:
+    "Unsure which service fits your needs? Houzecheck's experts are available to listen to your requirements and recommend the most suitable survey solutions.",
+  formFields: [
+    {
+      name: "query_type",
+      label: "Query type",
+      type: "select",
+      placeholder: "Select your query type?",
+      required: true,
+      errorMessage: "Please select a query type",
+      options: [
+        { value: "new-bookings", label: "New Booking" },
+        { value: "existing-bookings", label: "Existing Booking" },
+        { value: "post-inspection-query", label: "Post Inspection Query" },
+        { value: "customer-service", label: "Customer Service" },
+        { value: "partnerships", label: "Partnership Enquiry" },
+        { value: "other", label: "Other" },
+      ],
+    },
+    {
+      name: "first_name",
+      label: "First Name",
+      type: "text",
+      placeholder: "First Name",
+      required: true,
+      errorMessage: "Please enter your first name",
+    },
+    {
+      name: "last_name",
+      label: "Last Name",
+      type: "text",
+      placeholder: "Last Name",
+      required: true,
+      errorMessage: "Please enter your last name",
+    },
+    {
+      name: "email",
+      label: "Email",
+      type: "email",
+      placeholder: "Email",
+      required: true,
+      errorMessage: "Please enter a valid email address",
+    },
+    {
+      name: "phone",
+      label: "Phone",
+      type: "tel",
+      placeholder: "Phone",
+      required: false,
+      errorMessage: "Please enter a valid phone number",
+    },
+    {
+      name: "message",
+      label: "Message",
+      type: "textarea",
+      placeholder: "Enter your message",
+      required: true,
+      errorMessage: "Please enter your message",
+    },
+  ],
+  submitButtonLabel: "Send",
+  successMessage: "Thank you for contacting us! We'll get back to you soon.",
+  errorMessage: "Something went wrong. Please try again later.",
+  validationErrorMessage: "Please fill in all required fields correctly.",
+};

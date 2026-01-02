@@ -1,93 +1,137 @@
 "use client";
+import { builder, Builder } from "@builder.io/react";
+import AboutUsHero from "./components/AboutUsHero";
+import Banner from "./components/Banner";
+import Counter from "./components/Counter/Counter";
+import FAQ from "./components/FAQ";
+import Footer from "./components/Footer";
+// Import CLIENT components (not server components)
+import Navbar from "./components/Navbar";
 
-import { Builder } from "@builder.io/react";
-import Card from "./components/Card";
-import CardGrid from "./components/CardGrid";
-import MainSection from "./components/MainSection";
-import PageHeader from "./components/PageHeader";
+builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
-// Register Card component
-Builder.registerComponent(Card, {
-  name: "Card",
-  displayName: "Card",
-  description: "A reusable card component with title and description",
+// Only initialize if API key exists
+if (process.env.NEXT_PUBLIC_BUILDER_API_KEY) {
+  builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
+} else {
+  console.error("NEXT_PUBLIC_BUILDER_API_KEY is not set");
+}
+
+Builder.registerComponent(Counter, {
+  name: "Counter",
   inputs: [
     {
-      name: "title",
-      type: "string",
-      defaultValue: "Card Title",
-      required: true,
-    },
-    {
-      name: "description",
-      type: "string",
-      defaultValue: "Add your content here",
-      required: true,
+      name: "initialCount",
+      type: "number",
     },
   ],
 });
+// Register CLIENT components (these work in Builder.io's visual editor)
 
-// Register CardGrid component
-Builder.registerComponent(CardGrid, {
-  name: "CardGrid",
-  displayName: "Card Grid",
-  description: "Responsive grid layout for cards (1 col mobile, 2 col tablet, 3 col desktop)",
-  canHaveChildren: true,
+Builder.registerComponent(Navbar, {
+  name: "NavBar",
   inputs: [],
-  defaultChildren: [
-    {
-      "@type": "@builder.io/sdk:Element",
-      component: {
-        name: "Card",
-        options: {
-          title: "Sample Card",
-          description: "Click to edit",
-        },
-      },
-    },
-  ],
 });
 
-// Register MainSection component
-Builder.registerComponent(MainSection, {
-  name: "MainSection",
-  displayName: "Main Section",
-  description: "Main content section with title and flexible children",
-  canHaveChildren: true,
+Builder.registerComponent(Footer, {
+  name: "Footer",
+  inputs: [],
+});
+
+Builder.registerComponent(AboutUsHero, {
+  name: "AboutUsHero",
   inputs: [
     {
-      name: "title",
+      name: "eyebrow",
       type: "string",
-      defaultValue: "Section Title",
       required: true,
     },
-  ],
-  defaultChildren: [
     {
-      "@type": "@builder.io/sdk:Element",
-      tagName: "p",
-      children: "Add your content here",
-    },
-  ],
-});
-
-// Register PageHeader component
-Builder.registerComponent(PageHeader, {
-  name: "PageHeader",
-  displayName: "Page Header",
-  description: "Page header with title and optional subtitle",
-  inputs: [
-    {
-      name: "title",
+      name: "image",
       type: "string",
-      defaultValue: "Page Title",
+      required: true,
+    },
+    {
+      name: "logoList",
+      type: "object",
+      hideFromUI: true,
+      meta: {
+        ts: "{ name: string; url: string; }[]",
+      },
       required: true,
     },
     {
       name: "subtitle",
       type: "string",
-      defaultValue: "Page subtitle",
-      required: false,
+      required: true,
+    },
+    {
+      name: "title",
+      type: "string",
+      required: true,
     },
   ],
+});
+
+Builder.registerComponent(Banner, {
+  name: "Banner",
+  inputs: [
+    {
+      name: "backgroundColor",
+      type: "string",
+    },
+    {
+      name: "backgroundImage",
+      type: "string",
+    },
+    {
+      name: "button",
+      type: "object",
+      hideFromUI: true,
+      meta: {
+        ts: "{ label: string; url?: string; icon?: string; rightIcon?: string; leftIcon?: string; backgroundColor?: string; textColor?: string; onClick?: () => void; } & VariantProps<(props?: ConfigVariants<{ variant: { default: string; destructive: string; outline: string; secondary: string; ghost: string; link: string; }; size...",
+      },
+    },
+    {
+      name: "extraText",
+      type: "object",
+      hideFromUI: true,
+      meta: {
+        ts: "{ text: string; color?: string; }",
+      },
+    },
+    {
+      name: "eyebrow",
+      type: "object",
+      hideFromUI: true,
+      meta: {
+        ts: "{ text: string; color?: string; }",
+      },
+    },
+    {
+      name: "richText",
+      type: "string",
+    },
+    {
+      name: "subtitle",
+      type: "object",
+      hideFromUI: true,
+      meta: {
+        ts: "{ text: string; color?: string; }",
+      },
+    },
+    {
+      name: "title",
+      type: "object",
+      hideFromUI: true,
+      meta: {
+        ts: '{ text: string; size?: "md" | "lg"; color?: string; }',
+      },
+      required: true,
+    },
+  ],
+});
+
+Builder.registerComponent(FAQ, {
+  name: "FAQ",
 });
